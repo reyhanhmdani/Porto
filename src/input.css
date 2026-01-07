@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .glass-nav {
+        @apply bg-dark-bg/95 backdrop-blur-md border-b border-white/5;
+    }
+    
+    .gradient-text {
+        background: linear-gradient(135deg, #2dd4bf 0%, #3b82f6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+}
+
+/* Blob Animation */
+.blob {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(180deg, rgba(45, 212, 191, 0.15) 0%, rgba(59, 130, 246, 0.15) 100%);
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: -1;
+    animation: blob-bounce 10s infinite ease-in-out;
+}
+
+@keyframes blob-bounce {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(20px, -20px) scale(1.1); }
+}
+
+/* Hamburger Animation - "More Wow" Elastic Effect */
+#mobile-menu-btn span {
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+#mobile-menu-btn:hover span:nth-child(2) {
+    transform: translateX(2px);
+}
+
+#mobile-menu-btn.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+#mobile-menu-btn.open span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+#mobile-menu-btn.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+/* Mobile Menu Slide Down Animation */
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.menu-animate-enter {
+    animation: slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
