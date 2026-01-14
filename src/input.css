@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Prevent horizontal scroll on mobile */
+html, body {
+    overflow-x: hidden;
+}
+
 @layer utilities {
     .glass-nav {
         @apply bg-dark-bg/95 backdrop-blur-md border-b border-white/5;
